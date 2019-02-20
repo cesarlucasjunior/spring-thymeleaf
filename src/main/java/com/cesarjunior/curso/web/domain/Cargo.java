@@ -1,9 +1,12 @@
 package com.cesarjunior.curso.web.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @SuppressWarnings("serial")
 @Entity
@@ -16,6 +19,9 @@ public class Cargo extends AbstractEntity<Long> {
 	@JoinColumn(name = "id_departamento_fk")
 	private Departamento departamento;
 
+	@OneToMany(mappedBy="cargo")
+	private List<Funcionario> funcionario;
+	
 	public String getNome() {
 		return nome;
 	}
