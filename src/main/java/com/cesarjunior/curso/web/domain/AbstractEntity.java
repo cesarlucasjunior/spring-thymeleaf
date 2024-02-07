@@ -1,19 +1,23 @@
 package com.cesarjunior.curso.web.domain;
 
 import java.io.Serializable;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class AbstractEntity<T extends Serializable> implements Serializable {
+public abstract class AbstractEntity<ID extends Serializable> implements Serializable {
 
-	private T id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private ID id;
 
-	public T getId() {
+	public ID getId() {
 		return id;
 	}
 
-	public void setId(T id) {
+	public void setId(ID id) {
 		this.id = id;
 	}
 
@@ -35,19 +39,14 @@ public abstract class AbstractEntity<T extends Serializable> implements Serializ
 			return false;
 		AbstractEntity<?> other = (AbstractEntity<?>) obj;
 		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
+            return other.id == null;
+		} else return id.equals(other.id);
+    }
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Id=");
-		builder.append(id);
-		return builder.toString();
+        return "Id=" +
+				id;
 	}
 
 }

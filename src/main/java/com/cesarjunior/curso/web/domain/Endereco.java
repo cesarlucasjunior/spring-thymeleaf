@@ -4,16 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Table;
 
-@SuppressWarnings("serial")
 @Entity
-public class Endereco{
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+@Table(name = "ENDERECO")
+public class Endereco extends AbstractEntity<Long>{
 	@Column(nullable = false)
 	private String logradouro;
 
@@ -32,7 +27,7 @@ public class Endereco{
 	private String complemento;
 
 	@Column(nullable = false, length = 2)
-	@Enumerated(EnumType.STRING) // -> Anotação que informa a JPA o tipo de dados que queremos salvar.
+	@Enumerated(EnumType.STRING)
 	private UnidadeFederativa uf;
 
 	public String getLogradouro() {

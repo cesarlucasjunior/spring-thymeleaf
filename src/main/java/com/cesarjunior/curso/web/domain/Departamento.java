@@ -1,22 +1,15 @@
 package com.cesarjunior.curso.web.domain;
 
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@SuppressWarnings("serial")
 @Entity
-//@Table(name="DEPARTAMENTO")
-public class Departamento {
+@Table(name="DEPARTAMENTO")
+public class Departamento extends AbstractEntity<Long> {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	@Column(nullable = false, unique = true, length = 60)
 	private String nome;
 
@@ -38,7 +31,5 @@ public class Departamento {
 	public void setCargos(List<Cargo> cargos) {
 		this.cargos = cargos;
 	}
-	
-	
 
 }
