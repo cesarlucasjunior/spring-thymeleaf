@@ -29,8 +29,8 @@ public enum UnidadeFederativa {
 	SE("SE", "Sergipe"),
 	TO("TO", "Tocantins");
 	
-	private String sigla;
-	private String descricao;
+	private final String sigla;
+	private final String descricao;
 	
 	UnidadeFederativa(String sigla, String descricao){
 		this.sigla = sigla;

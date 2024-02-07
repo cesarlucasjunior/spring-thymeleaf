@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.MappedSuperclass;
 
-@SuppressWarnings("serial")
 @MappedSuperclass
 public abstract class AbstractEntity<T extends Serializable> implements Serializable {
 
