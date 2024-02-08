@@ -1,4 +1,4 @@
-package com.cesarjunior.curso.web.domain;
+package com.cesarjunior.curso.domain;
 
 public enum UnidadeFederativa {
 

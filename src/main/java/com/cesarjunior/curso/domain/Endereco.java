@@ -1,4 +1,4 @@
-package com.cesarjunior.curso.web.domain;
+package com.cesarjunior.curso.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ENDERECO")
+@Table(name = "ENDERECOS")
 public class Endereco extends AbstractEntity<Long>{
 	@Column(nullable = false)
 	private String logradouro;

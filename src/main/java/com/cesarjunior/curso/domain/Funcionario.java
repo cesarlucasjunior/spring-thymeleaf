@@ -1,4 +1,4 @@
-package com.cesarjunior.curso.web.domain;
+package com.cesarjunior.curso.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "FUNCIONARIO")
+@Table(name = "FUNCIONARIOS")
 public class Funcionario extends AbstractEntity<Long> {
 	@Column(nullable = false)
 	private String nome;
@@ -25,7 +25,7 @@ public class Funcionario extends AbstractEntity<Long> {
 	@Column(name = "data_saida", columnDefinition = "DATE")
 	private LocalDate dataSaida;
 
-	@OneToOne(cascade = CascadeType.ALL) // Quando for mexer o funcionario insiro o endereco por cascata;
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco_id_fk")
 	private Endereco endereco;
 
